@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import elenitasignboard from '../assets/elenitasignboard.png';
+import elenitasignboard from '../assets/elenitasignboard.png'
 
 function HomePage() {
   return (
@@ -68,7 +68,8 @@ function HomePage() {
               <img
                 src={elenitasignboard}
                 alt="Elenita Signboard"
-                className="w-full h-full object-cover object-center rounded-xl"
+                className="w-full h-full object-cover object-center rounded-xl                git remote remove origin
+                git remote add origin https://github.com/Wisloo/elenita-quickpay.git"
               />
             </div>
 
