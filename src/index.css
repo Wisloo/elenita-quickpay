@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+/* Global defaults (mobile-first). Keep styles minimal; prefer Tailwind utilities in components. */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
