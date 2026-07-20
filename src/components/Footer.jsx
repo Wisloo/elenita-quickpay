@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 function Footer() {
   const year = new Date().getFullYear()
@@ -13,13 +13,13 @@ function Footer() {
 
           <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
             <Link
-              to="/how-to-pay"
+              href="/how-to-pay"
               className="text-slate-600 hover:text-slate-900 underline-offset-4 hover:underline"
             >
               How to Pay
             </Link>
             <Link
-              to="/contact"
+              href="/contact"
               className="text-slate-600 hover:text-slate-900 underline-offset-4 hover:underline"
             >
               Contact
