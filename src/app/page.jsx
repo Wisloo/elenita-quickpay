@@ -2,6 +2,7 @@ import { ShieldCheckIcon, BoltIcon, ChartBarIcon } from '@heroicons/react/24/sol
 import Link from 'next/link'
 import Image from 'next/image'
 import heroImg from '../assets/elenitasignboard.png'
+import { auth } from '../auth.js'
 
 function Feature({ Icon, label }) {
   return (
@@ -14,18 +15,22 @@ function Feature({ Icon, label }) {
   )
 }
 
-export default function LandingHero() {
+export default async function LandingHero() {
+  const session = await auth()
+
   return (
     <section className="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center bg-blue-100 px-4 py-8 relative">
       {/* Header with Login/Register */}
-      <div className="absolute top-4 right-4 flex space-x-2">
-        <Link href="/login" className="bg-white text-blue-700 font-semibold px-4 py-2 rounded shadow hover:bg-yellow-300">
-          Login
-        </Link>
-        <Link href="/register" className="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded shadow hover:bg-yellow-300">
-          Register
-        </Link>
-      </div>
+      {!session && (
+        <div className="absolute top-4 right-4 flex space-x-2">
+          <Link href="/login" className="bg-white text-blue-700 font-semibold px-4 py-2 rounded shadow hover:bg-yellow-300">
+            Login
+          </Link>
+          <Link href="/register" className="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded shadow hover:bg-yellow-300">
+            Register
+          </Link>
+        </div>
+      )}
       {/* Main content */}
       <div className="flex flex-col items-center text-center mt-12 sm:mt-0">
         <h1 className="text-3xl sm:text-5xl font-extrabold text-blue-900 mb-4 leading-tight">

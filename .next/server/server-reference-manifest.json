@@ -1,5 +1,45 @@
 {
-  "node": {},
+  "node": {
+    "608d4bf3f0955122cceb87d30bb0796222d2c5aef8": {
+      "workers": {
+        "app/login/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CLouis%5C%5CDocuments%5C%5CGitHub%5C%5Celenita-quickpay%5C%5Csrc%5C%5Capp%5C%5Clogin%5C%5Cactions.js%22%2C%5B%7B%22id%22%3A%22608d4bf3f0955122cceb87d30bb0796222d2c5aef8%22%2C%22exportedName%22%3A%22loginUser%22%2C%22filename%22%3A%22..%2FC%3A%5C%5CUsers%5C%5CLouis%5C%5CDocuments%5C%5CGitHub%5C%5Celenita-quickpay%5C%5Csrc%5C%5Capp%5C%5Clogin%5C%5Cactions.js%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": true
+        }
+      },
+      "layer": {
+        "app/login/page": "action-browser"
+      },
+      "filename": "../C:\\Users\\Louis\\Documents\\GitHub\\elenita-quickpay\\src\\app\\login\\actions.js",
+      "exportedName": "loginUser"
+    },
+    "60ac57bcf81bddfdb2ab59e1a5604bd6ec016f36a2": {
+      "workers": {
+        "app/register/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CLouis%5C%5CDocuments%5C%5CGitHub%5C%5Celenita-quickpay%5C%5Csrc%5C%5Capp%5C%5Cregister%5C%5Cactions.js%22%2C%5B%7B%22id%22%3A%2260ac57bcf81bddfdb2ab59e1a5604bd6ec016f36a2%22%2C%22exportedName%22%3A%22registerUser%22%2C%22filename%22%3A%22..%2FC%3A%5C%5CUsers%5C%5CLouis%5C%5CDocuments%5C%5CGitHub%5C%5Celenita-quickpay%5C%5Csrc%5C%5Capp%5C%5Cregister%5C%5Cactions.js%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": true
+        }
+      },
+      "layer": {
+        "app/register/page": "action-browser"
+      },
+      "filename": "../C:\\Users\\Louis\\Documents\\GitHub\\elenita-quickpay\\src\\app\\register\\actions.js",
+      "exportedName": "registerUser"
+    },
+    "6016476a110050052c2caa86d31a4965104ad107bd": {
+      "workers": {
+        "app/contact/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CLouis%5C%5CDocuments%5C%5CGitHub%5C%5Celenita-quickpay%5C%5Csrc%5C%5Capp%5C%5Ccontact%5C%5Cactions.js%22%2C%5B%7B%22id%22%3A%226016476a110050052c2caa86d31a4965104ad107bd%22%2C%22exportedName%22%3A%22submitContact%22%2C%22filename%22%3A%22..%2FC%3A%5C%5CUsers%5C%5CLouis%5C%5CDocuments%5C%5CGitHub%5C%5Celenita-quickpay%5C%5Csrc%5C%5Capp%5C%5Ccontact%5C%5Cactions.js%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": true
+        }
+      },
+      "layer": {
+        "app/contact/page": "action-browser"
+      },
+      "filename": "../C:\\Users\\Louis\\Documents\\GitHub\\elenita-quickpay\\src\\app\\contact\\actions.js",
+      "exportedName": "submitContact"
+    }
+  },
   "edge": {},
   "encryptionKey": "rLDSdux5PrB/yDGcBca9doB6qQ/Pxu4AcGroEBf055c="
 }
