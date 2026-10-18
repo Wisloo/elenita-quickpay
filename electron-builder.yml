@@ -1,0 +1,16 @@
+appId: com.elenita.quickpay
+productName: Elenita QuickPay POS
+directories:
+  output: release
+files:
+  - out/**
+  - package.json
+win:
+  target:
+    - nsis
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  shortcutName: QuickPay POS
+  artifactName: QuickPayPOS-${version}-setup.${ext}

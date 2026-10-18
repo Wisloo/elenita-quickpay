@@ -1,12 +1,240 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-/* Global defaults (mobile-first). Keep styles minimal; prefer Tailwind utilities in components. */
-html,
-body,
-#root {
-  height: 100%;
+@theme {
+  --font-sans: 'Roboto Mono', 'Cascadia Mono', Consolas, ui-monospace, monospace;
+
+  --color-primary: #005691;
+  --color-primary-deep: #00406c;
+  --color-ink: #2c3e50;
+  --color-ink-soft: #4a6076;
+  --color-aqua: #20b2aa;
+  --color-aqua-deep: #188f88;
+  --color-orange: #ff8c00;
+  --color-orange-deep: #e07a00;
+  --color-purple: #8a2be2;
+  --color-yellow: #ffd700;
+  --color-mist: #ecf0f1;
+  --color-mist-deep: #dde4e7;
 }
 
-body {
-  margin: 0;
+@layer base {
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-mist text-ink font-sans text-base;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: rgba(0, 86, 145, 0.2);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-slate-300;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-[0.5rem] border border-slate-200 bg-white shadow-[0_2px_12px_rgba(0,0,0,0.06)];
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-orange,
+  .btn-ghost,
+  .btn-danger {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-[0.5rem] px-3 py-2 text-[0.875rem] font-semibold tracking-wide transition-all duration-200 select-none;
+  }
+
+  .btn:active,
+  .btn-primary:active,
+  .btn-orange:active,
+  .btn-ghost:active,
+  .btn-danger:active {
+    transform: translateY(-1px);
+  }
+
+  .btn:disabled,
+  .btn-primary:disabled,
+  .btn-orange:disabled,
+  .btn-ghost:disabled,
+  .btn-danger:disabled {
+    @apply cursor-not-allowed opacity-50;
+    transform: none;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-aqua;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    @apply bg-primary-deep shadow-[0_6px_16px_rgba(0,86,145,0.35)];
+  }
+
+  .btn-orange {
+    @apply bg-orange text-ink;
+  }
+
+  .btn-orange:hover:not(:disabled) {
+    @apply bg-orange-deep text-white shadow-[0_6px_16px_rgba(255,140,0,0.3)];
+  }
+
+  .btn-ghost {
+    @apply border-[1.5px] border-slate-300 bg-white text-primary;
+  }
+
+  .btn-ghost:hover:not(:disabled) {
+    @apply border-primary bg-mist;
+  }
+
+  .btn-danger {
+    @apply border-[1.5px] border-red-300 bg-white text-red-600;
+  }
+
+  .btn-danger:hover:not(:disabled) {
+    @apply bg-red-50;
+  }
+
+  .input {
+    @apply w-full rounded-[0.5rem] border border-slate-300 bg-white px-3 py-2 text-[0.875rem] text-ink outline-none transition-all duration-200 placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-purple focus:ring-offset-2;
+  }
+
+  .input:disabled {
+    @apply cursor-not-allowed bg-mist;
+  }
+
+  .input-error {
+    @apply border-red-400 focus:border-red-500 focus:ring-red-400;
+  }
+
+  .label {
+    @apply mb-1 block text-[0.8125rem] font-medium tracking-wide text-ink-soft;
+  }
+
+  .th {
+    @apply border-b border-slate-200 bg-mist px-3 py-2 text-left text-[0.75rem] font-bold tracking-wider text-primary uppercase;
+  }
+
+  .td {
+    @apply border-b border-slate-100 px-3 py-2 text-[0.8125rem] align-middle;
+  }
+
+  .section-title {
+    @apply text-[1.25rem] font-bold tracking-tight text-ink;
+  }
+
+  .stat-label {
+    @apply text-[0.75rem] font-bold tracking-[0.12em] text-ink-soft uppercase;
+  }
+
+  .nav-item {
+    @apply relative flex cursor-pointer items-center gap-3 rounded-[0.5rem] px-3 py-2 text-[0.875rem] font-medium text-slate-300 transition-all duration-200;
+  }
+
+  .nav-item:hover {
+    @apply bg-white/5 text-white;
+  }
+
+  .nav-item-active {
+    @apply bg-white/10 font-semibold text-white;
+  }
+
+  .nav-item-active::before {
+    content: '';
+    @apply absolute top-1/2 left-0 h-5 w-1 -translate-y-1/2 rounded-full bg-orange;
+  }
+}
+
+@layer utilities {
+  .anim-in {
+    animation: fade-up 420ms ease-out both;
+  }
+
+  .overlay {
+    z-index: 300;
+  }
+
+  .toast-layer {
+    z-index: 500;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -400px 0;
+  }
+  to {
+    background-position: 400px 0;
+  }
+}
+
+.skeleton {
+  @apply rounded-[0.5rem] bg-slate-200;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 100%);
+  background-size: 400px 100%;
+  background-repeat: no-repeat;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+
+  .print-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80mm;
+    margin: 0;
+    padding: 4mm;
+    background: white;
+  }
+
+  .print-sheet,
+  .print-sheet * {
+    visibility: visible;
+  }
+
+  .print-sheet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 12mm;
+    background: white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
 }

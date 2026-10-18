@@ -1,16 +1,55 @@
-# React + Vite
+# Elenita QuickPay POS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Desktop point-of-sale for **Elenita Heights water billing** — record meter readings, issue bills, collect cash/GCash payments, print receipts, and run end-of-day Z-reports. Windows-only Electron app with a fully local SQLite database (no internet or server required).
 
-Currently, two official plugins are available:
+Built with Electron + Vite + React + Tailwind CSS v4 + Drizzle ORM (better-sqlite3).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Cashier login** — local accounts with admin/cashier roles (default `admin` / `admin`)
+- **Customer accounts** — account numbers, meters, addresses, full billing history
+- **Meter readings** — previous-reading validation, consumption from the active rate table
+- **Billing** — auto bills from readings or manual bills; partial payments supported
+- **Payments** — cash or GCash (with reference number), receipt numbering `R2026-00001`
+- **Receipt printing** — 80mm-receipt-friendly print layout
+- **Z-Report** — daily totals, method split, per-cashier breakdown, printable
+- **Rates management** — multiple rates, one active rate used for new readings
+- **Backup / restore** — save and restore the database file via dialog
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Development
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev        # electron-vite dev with hot reload
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Build & package (Windows)
+
+```bash
+npm run dist       # build + NSIS installer into release/
+npm run dist:dir   # build + unpacked app folder (no installer)
+```
+
+The installer is written to `release/QuickPayPOS-<version>-setup.exe`.
+
+## Data location
+
+The database (`quickpay.db`) lives in the app's user data folder:
+
+```
+%APPDATA%/Elenita QuickPay POS/quickpay.db
+```
+
+Back it up regularly from **Settings → Backup & Data**.
+
+## Default login
+
+| Username | Password | Role  |
+| -------- | -------- | ----- |
+| `admin`  | `admin`  | admin |
+
+Change the password immediately after first sign-in (**Settings → My Account**), and add your cashiers under **Settings → Users**.
+
+## Design
+
+UI follows the *Construtivismo de Dados Dinâmicos* system: Roboto Mono throughout, deep blue `#005691` with aqua/orange/purple accents, dense structured layouts, subtle motion.
